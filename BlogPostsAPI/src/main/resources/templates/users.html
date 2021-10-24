@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html><head><title>BlogsAPI 2021</title></head>
+<body>
+
+	<h1 align="center">Users in my network</h1>
+	<div align="center"> 
+	
+	<a th:href="@{home}">Home</a> 
+	<a th:href="@{locations}">Locations</a> 
+	<a th:href="@{users}">Users</a> | 
+	<a th:href="@{posts}">Posts</a> |  
+	
+	</div>
+	<ol>
+	    <li th:each="user : ${users}">
+	        <span th:text="${user.firstName}">Default</span>  |
+	        <span th:text="${user.lastName}">Default</span>  |
+	        <span th:text="${user.Email}">Default</span>  |
+	    </li>
+	</ol>
+
+</body>
+</html>

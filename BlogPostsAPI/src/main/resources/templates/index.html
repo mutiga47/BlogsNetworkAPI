@@ -2,14 +2,39 @@
 <html><head><title>BlogsAPI 2021</title></head>
 <body>
 
-<h1>My Blog Posts</h1>
-<div align="center"> 
+	<h1 align="center">Reaggs Social Network</h1>
+	<div align="center"> 
+	
+	<a th:href="@{locations}">Locations</a> 
+	<a th:href="@{users}">Users</a> | 
+	<a th:href="@{posts}">Posts</a> |  
+	
+	</div>
+	
+	<div align="center"> 
+		<p>Fill in a blog post today !!!</p> 
+		<form action="savePost" method="post">
+			<table>
+				<tr>
+					<td> <label for="postDate">Post Date </label></td>
+					<td> <input type="text" name="postDate"> </input></td>
+				</tr>
+				<tr>
+					<td> <label for="title">Post Title </label></td>
+					<td> <input type="text" name="title"></input></td>
+				</tr>
+				<tr>
+					<td> <label for="postContent">Post Details </label></td>
+					<td> <textarea id="postContent" name="postContent" rows="6" cols="50"></textarea></td>
+				</tr>
+				<tr>
+					<td> </td>
+					<td> <input type="submit" value="Send Comment"></input></td>
+				</tr>
 
-<a th:href="@{locations}">Locations</a> 
-<a th:href="@{users}">Users</a> | 
-<a th:href="@{posts}">Posts</a> |  
-
-</div>
+			</table>
+		</form>
+	</div>
 
 </body>
 </html>
