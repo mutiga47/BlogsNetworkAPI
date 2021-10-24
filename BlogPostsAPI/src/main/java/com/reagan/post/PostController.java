@@ -6,10 +6,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.reagan.location.Location;
+import com.reagan.user.User;
 
 @Controller
 public class PostController {
@@ -40,6 +45,22 @@ public class PostController {
 //	public ModelAndView save1(@ModelAttribute Post post) {
 //		//Save to database
 ////		addPost(post);
+//
+//		Location location1 = new Location("l1",
+//										  "Molo");
+//		User user1 = new User("us2",
+//							  "Solaris",
+//							  "Michu",
+//							  "sdan@gmail.com",
+//							  location1);
+//		
+//
+//
+//		Post post1 = new Post("ps1",
+//							  "02 - Oct - 2021",
+//							  user1,
+//							  "It is well today");
+//		addPost(post1);
 //		
 //		ModelAndView modelAndView = new ModelAndView();
 //		modelAndView.setViewName("posts");
@@ -47,7 +68,34 @@ public class PostController {
 //		
 //		return modelAndView;
 //	}
-	
+//	
+	@RequestMapping(value="/savePost")
+	public String save(@ModelAttribute Post post, Model model) {
+		//Save to database
+//		addPost(post);
+
+		Location location1 = new Location("l1",
+										  "Molo");
+		User user1 = new User("us2",
+							  "Solaris",
+							  "Michu",
+							  "sdan@gmail.com",
+							  location1);
+		
+
+
+		Post post1 = new Post("ps1",
+							  "02 - Oct - 2021",
+							  user1,
+							  "It is well today");
+		
+//		postService.addPost(post1);
+		model.addAttribute("postsVar", post1);
+		
+		System.out.println("Here-->Done");
+		
+		return "posts";
+	}
 	
 	@RequestMapping(value="/posts", method = RequestMethod.POST)
 	public void addPost(@RequestBody Post post) {

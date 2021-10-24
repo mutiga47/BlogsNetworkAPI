@@ -11,7 +11,7 @@
 	<a th:href="@{posts}">Posts</a> |  
 	
 	</div>
-	<div align=""> 
+	<div align="center"> 
 		<ol>
 		    <li th:each="post : ${posts}">
 		        <span th:text="${post.postDate}">Post Date</span>  |
@@ -20,7 +20,16 @@
 		    </li>
 		</ol>
 	</div>
-
+	
+	<div align="center"> 
+		<ol>
+		    <li th:each="postv : ${postsVar}">
+		        <span th:text="${postv.postDate}">Post Date</span>  |
+		        <span th:text="${postv.title}">Default</span>  |
+		        <span th:text="${postv.postContent}">Default</span>
+		    </li>
+		</ol>
+	</div>
 
 </body>
 </html>
