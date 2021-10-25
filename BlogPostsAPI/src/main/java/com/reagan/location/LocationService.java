@@ -13,18 +13,6 @@ public class LocationService {
 	@Autowired
 	private LocationRepository locationRepository;
 
-//	Location location1 = new Location("l1",
-//									  "Lagos");
-//
-//	Location location2 = new Location("l2",
-//		    						  "Nairobi");
-//	Location location3 = new Location("l3",
-//									  "Mombasa");
-//	
-//	private List<Location> locations = new ArrayList<>(Arrays.asList(location1, 
-//														     	     location2,
-//																     location3));
-
 	public List<Location> getAllLocations(){
 		List<Location> locations = new ArrayList<>();
 		
@@ -33,7 +21,7 @@ public class LocationService {
 		return locations;
 	}
 
-	public Optional<Location> getLocationById(String id) {
+	public Optional<Location> getLocationById(Long id) {
 		return locationRepository.findById(id);
 	}
 
@@ -41,12 +29,12 @@ public class LocationService {
 		locationRepository.save(location);
 	}
 
-	public void updateLocation(String id, 
+	public void updateLocation(Long id, 
 							   Location location) {
 		locationRepository.save(location);
 	}
 
-	public void deleteLocation(String id) {
+	public void deleteLocation(Long id) {
 		locationRepository.deleteById(id);
 	}
 

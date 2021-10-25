@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html><head><title>BlogsAPI 2021</title></head>
-<body>
-
-	<h1 align="center">Locations for users</h1>
-	<div align="center"> 
+	<body>
 	
-	<a th:href="@{home}">Home</a> 
-	<a th:href="@{locations}">Locations</a> 
-	<a th:href="@{users}">Users</a> | 
-	<a th:href="@{posts}">Posts</a> |  
+		<h1 align="center">Locations for users</h1>
+		<div align="center"> 
+			<a th:href="@{addPost}">Home</a> | 
+			<a th:href="@{posts}">Posts</a> |
+			<a th:href="@{locations}">Locations</a> 
+			<a th:href="@{users}">Users</a>  
+		</div>
+		
+		<div align="center"> 
+			<table>
+				<caption>User Locations</caption>
+				<tr>
+				    <th scope="col">Location ID</th>
+				    <th scope="col">Location Name</th>
+			  	</tr>
+			    <tr th:each="location : ${locations}">
+			        <td><span th:text="${location.id}"></span></td>
+			        <td><span th:text="${location.locationName}"></span></td>
+			    </tr>
+			</table>
+		</div>
+		
+		<hr/>
+		<div align="center"> 
+			<a th:href="@{addPost}">Add Posts</a> 
+			<a th:href="@{addLocation}">Add Locations</a> 
+			<a th:href="@{addUser}">Add Users</a>
+		</div>
+		
+		
 	
-	</div>
-	<ol>
-	    <li th:each="location : ${locations}">
-	        <span th:text="${location.locationName}">Default</span>
-	    </li>
-	</ol>
-
-</body>
+	</body>
 </html>

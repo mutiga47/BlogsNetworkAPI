@@ -6,6 +6,8 @@
 package com.reagan.post;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -13,9 +15,10 @@ import com.reagan.user.User;
 
 @Entity
 public class Post {
-	
+
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id//PrimaryKey
-	private String id;
+	private Long id;
 	private String title;
 	private String postDate;
 	@ManyToOne //Foreign link Relationship
@@ -24,7 +27,7 @@ public class Post {
 	
 	public Post() {}
 	
-	public Post(String id, String postDate, User user, String postDetails) {
+	public Post(Long id, String postDate, User user, String postDetails) {
 		super();
 		this.id = id;
 		this.postDate = postDate;
@@ -48,7 +51,7 @@ public class Post {
 		this.postContent = postContent;
 	}
 
-	public Post(String id, String title, String postDate, User user, String postContent) {
+	public Post(Long id, String title, String postDate, User user, String postContent) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -57,10 +60,10 @@ public class Post {
 		this.postContent = postContent;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getPostDate() {

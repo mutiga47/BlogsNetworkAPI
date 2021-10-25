@@ -21,11 +21,11 @@ public class UserService {
 		return users;
 	}
 
-	public Optional<User> getUserById(String id) {
+	public Optional<User> getUserById(Long id) {
 		return userRepository.findById(id);		
 	}
 	
-	public List<User> getUserByLocation(String id) {
+	public List<User> getUserByLocation(Long id) {
 		
 		return userRepository.findByLocationId(id);
 		
@@ -35,12 +35,12 @@ public class UserService {
 		userRepository.save(user);
 	}
 
-	public void updateUser(String id, 
+	public void updateUser(Long id, 
 						   User user) {
 		userRepository.save(user);		
 	}
 
-	public void deleteUser(String id) {
+	public void deleteUser(Long id) {
 		userRepository.deleteById(id);
 	}
 	

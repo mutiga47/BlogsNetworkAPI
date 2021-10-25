@@ -8,6 +8,7 @@ public class BlogPostsApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BlogPostsApiApplication.class, args);
+		System.out.println("App is loaded");
 	}
 
 }

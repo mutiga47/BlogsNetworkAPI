@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UserController {
@@ -27,8 +28,29 @@ public class UserController {
 		return "users";
 	}
 
+	@RequestMapping(value="/addUser")
+	public ModelAndView addNewUser() {
+		User user = new User();
+//		Location location = new Location();
+//		
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject("addLocation", location);
+//		mav.addObject("addUser", user);
+//		
+//		return mav;
+		
+		return new ModelAndView("addUser", "form", user);
+	}
+	
+	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
+	public String saveNewUser(User user) {
+		userService.addUser(user);
+		return ("redirect:/users");
+
+	}
+	
 	@RequestMapping(value="/users/{id}")
-	public Optional<User> getUser(@PathVariable String id) {
+	public Optional<User> getUser(@PathVariable Long id) {
 		return userService.getUserById(id);
 	}
 
@@ -38,20 +60,20 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/users/{id}", method=RequestMethod.PUT)
-	public void modifyUser(@PathVariable String id,
+	public void modifyUser(@PathVariable Long id,
 						   @RequestBody User user) {
 		userService.updateUser(id,
 							   user);
 	}
 
 	@RequestMapping(value="/users/location/{id}")
-	public List<User> getUserByLocation(@PathVariable String id) {
+	public List<User> getUserByLocation(@PathVariable Long id) {
 		return userService.getUserByLocation(id);
 	}
 		
 	@RequestMapping(value="/users/{id}", 
 					method=RequestMethod.DELETE)
-	public void removeUser(@PathVariable String id) {
+	public void removeUser(@PathVariable Long id) {
 		userService.deleteUser(id);
 		
 	}

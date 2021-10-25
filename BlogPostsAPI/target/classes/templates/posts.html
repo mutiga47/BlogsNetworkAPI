@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html><head><title>BlogsAPI 2021</title></head>
-<body>
-
-	<h1 align="center">Posts by connected users</h1>
-	<div align="center"> 
+	<body>
 	
-	<a th:href="@{home}">Home</a> 
-	<a th:href="@{locations}">Locations</a> 
-	<a th:href="@{users}">Users</a> | 
-	<a th:href="@{posts}">Posts</a> |  
+		<h1 align="center">Posts by connected users</h1>
+		<div align="center"> 
+			<a th:href="@{addPost}">Home</a> | 
+			<a th:href="@{posts}">Posts</a> |
+			<a th:href="@{locations}">Locations</a> 
+			<a th:href="@{users}">Users</a>  
+		</div>
 	
-	</div>
-	<div align="center"> 
-		<ol>
-		    <li th:each="post : ${posts}">
-		        <span th:text="${post.postDate}">Post Date</span>  |
-		        <span th:text="${post.title}">Default</span>  |
-		        <span th:text="${post.postContent}">Default</span>
-		    </li>
-		</ol>
-	</div>
-	
-	<div align="center"> 
-		<ol>
-		    <li th:each="postv : ${postsVar}">
-		        <span th:text="${postv.postDate}">Post Date</span>  |
-		        <span th:text="${postv.title}">Default</span>  |
-		        <span th:text="${postv.postContent}">Default</span>
-		    </li>
-		</ol>
-	</div>
-
-</body>
+		<div align="center"> 
+			<table>
+				<caption>User Posts</caption>
+				<tr>
+				    <th scope="col">Post ID</th>
+				    <th scope="col">Post Date</th>
+				    <th scope="col">Title</th>
+				    <th scope="col">Content</th>
+			  	</tr>
+			    <tr  th:each="post : ${posts}">
+			        <td><span th:text="${post.id}"></span></td>
+			        <td><span th:text="${post.postDate}"></span></td>
+			        <td><span th:text="${post.title}"></span></td>
+			        <td><span th:text="${post.postContent}"></span></td>
+			    </tr>
+			</table>
+		</div>
+		
+		<hr/>
+		<div align="center"> 
+			<a th:href="@{addPost}">Add Posts</a> 
+			<a th:href="@{addLocation}">Add Locations</a> 
+			<a th:href="@{addUser}">Add Users</a>
+		</div>
+	</body>
 </html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html><head><title>BlogsAPI 2021</title></head>
+	<body>
+		<h1 align="center">Reaggs Social Network</h1>
+		<div align="center"> 
+		
+		<a th:href="@{locations}">Locations</a> 
+		<a th:href="@{users}">Users</a> | 
+		<a th:href="@{posts}">Posts</a> |  
+		
+		</div>
+	
+		<div align="center"> 
+			<p>A new User Join us today !!!</p> 
+			<form action="saveUser" method="post">
+				<table>
+					<tr>
+						<td> <label for="firstName">First Name </label></td>
+						<td> <input type="text" name="firstName"> </input></td>
+					</tr>
+					<tr>
+						<td> <label for="lastName">Last Name </label></td>
+						<td> <input type="text" name="lastName"></input></td>
+					</tr>
+					<tr>
+						<td> <label for="email">Email Details </label></td>
+						<td> <input type="text" name="email"></input></td>
+					</tr>
+					<tr>
+						<td> </td>
+						<td> <input type="submit" value="Submit"></input></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

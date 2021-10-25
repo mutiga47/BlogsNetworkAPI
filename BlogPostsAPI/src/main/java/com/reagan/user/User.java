@@ -5,6 +5,8 @@
 package com.reagan.user;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -12,9 +14,10 @@ import com.reagan.location.Location;
 
 @Entity
 public class User {
-	
+
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id//PrimaryKey
-	private String id;
+	private Long id;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -24,7 +27,7 @@ public class User {
 	
 	public User() {}
 	
-	public User(String id, 
+	public User(Long id, 
 				String firstName, 
 				String lastName, 
 				String email, 
@@ -37,10 +40,10 @@ public class User {
 		this.location = location;
 	}
 	
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getFirstName() {

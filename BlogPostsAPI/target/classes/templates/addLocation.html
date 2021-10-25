@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><head><title>BlogsAPI 2021</title></head>
+	<body>
+	
+		<h1 align="center">Reaggs Social Network</h1>
+		<div align="center"> 
+		
+		<a th:href="@{locations}">Locations</a> 
+		<a th:href="@{users}">Users</a> | 
+		<a th:href="@{posts}">Posts</a> |  
+		
+		</div>
+		
+		<div align="center"> 
+			<p>Add a Location to our system !!!</p> 
+			<form action="saveLocation" method="post">
+				<table>
+					<tr>
+						<td> <label for="locationName">Location Name </label></td>
+						<td> <input type="text" name="locationName"> </input></td>
+					</tr>
+					<tr>
+						<td> </td>
+						<td> <input type="submit" value="Store Location"></input></td>
+					</tr>
+	
+				</table>
+			</form>
+		</div>
+	
+	</body>
+</html>
